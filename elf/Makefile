@@ -642,6 +642,7 @@ ifeq (yes,$(build-shared))
 $(inst_rtlddir)/$(rtld-installed-name): $(objpfx)ld.so $(+force)
 	$(make-target-directory)
 	$(do-install-program)
+	cd $(inst_rtlddir) && ln -s $(rtld-installed-name) ld-chipcraft.so
 
 # Special target called by parent to install just the dynamic linker.
 .PHONY: ldso_install
