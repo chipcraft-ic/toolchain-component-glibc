@@ -494,6 +494,7 @@ ifeq (yes,$(build-shared))
 $(inst_slibdir)/$(rtld-version-installed-name): $(objpfx)ld.so $(+force)
 	$(make-target-directory)
 	$(do-install-program)
+	cd $(inst_rtlddir) && ln -s $(rtld-installed-name) ld-chipcraft.so
 
 $(inst_rtlddir)/$(rtld-installed-name): \
   $(inst_slibdir)/$(rtld-version-installed-name) \
