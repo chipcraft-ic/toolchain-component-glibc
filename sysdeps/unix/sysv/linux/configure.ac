@@ -1,7 +1,7 @@
 GLIBC_PROVIDES dnl See aclocal.m4 in the top level source directory.
 # Local configure fragment for sysdeps/unix/sysv/linux.
 
-define([LIBC_LINUX_VERSION],[3.2.0])dnl
+define([LIBC_LINUX_VERSION],[2.6.32])dnl
 if test -n "$sysheaders"; then
   OLD_CPPFLAGS=$CPPFLAGS
   CPPFLAGS="$CPPFLAGS $SYSINCLUDES"
@@ -33,7 +33,7 @@ fi
 # set arch_minimum_kernel already, let that override our defaults here.
 # Note that we presume such a fragment has set libc_cv_gcc_unwind_find_fde
 # if appropriate too.
-test -n "$arch_minimum_kernel" || arch_minimum_kernel=3.2.0
+test -n "$arch_minimum_kernel" || arch_minimum_kernel=2.6.32
 if test -n "$minimum_kernel"; then
   changequote(,)
   user_version=$((`echo "$minimum_kernel.0.0.0" | sed 's/\([0-9]*\)\.\([0-9]*\)\.\([0-9]*\).*/\1 \* 65536 + \2 \* 256 + \3/'`))
@@ -50,7 +50,7 @@ fi
 AC_MSG_CHECKING(for kernel header at least $minimum_kernel)
 changequote(,)dnl
 decnum=`echo "$minimum_kernel.0.0.0" | sed 's/\([0-9]*\)\.\([0-9]*\)\.\([0-9]*\).*/(\1 * 65536 + \2 * 256 + \3)/'`;
-abinum=`echo "$minimum_kernel.0.0.0" | sed 's/\([0-9]*\)\.\([0-9]*\)\.\([0-9]*\).*/\1,\2,\3/'`;
+abinum=`echo "2.6.32.0.0.0" | sed 's/\([0-9]*\)\.\([0-9]*\)\.\([0-9]*\).*/\1,\2,\3/'`;
 changequote([,])dnl
 AC_TRY_COMPILE([#include <linux/version.h>
 #if LINUX_VERSION_CODE < $decnum

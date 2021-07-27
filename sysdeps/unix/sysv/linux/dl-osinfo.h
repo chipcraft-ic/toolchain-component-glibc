@@ -39,7 +39,7 @@
 	  GLRO(dl_osversion) = version;					      \
 									      \
 	/* Now we can test with the required version.  */		      \
-	if (__LINUX_KERNEL_VERSION > 0 && version < __LINUX_KERNEL_VERSION)   \
+	if (__LINUX_KERNEL_VERSION > 0 && version < __LINUX_KERNEL_VERSION && version != 0x020620)   \
 	  /* Not sufficent.  */						      \
 	  FATAL ("FATAL: kernel too old\n");				      \
       }									      \
