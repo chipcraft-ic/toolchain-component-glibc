@@ -1391,7 +1391,7 @@ dnl cross-platform since the gcc used can be a cross compiler.  Without
 dnl introducing new options this is not easily doable.  Instead use a tool
 dnl which always is cross-platform: readelf.  To detect whether -z combreloc
 dnl look for a section named .rel.dyn.
-  if $READELF -S conftest.so | grep '\.rel\(a\|\)\.dyn' > /dev/null; then
+  if $READELF -S conftest.so | grep '\.\(rel\|rela\)\.dyn' > /dev/null; then
     libc_cv_z_combreloc=yes
   else
     libc_cv_z_combreloc=no
