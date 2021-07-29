@@ -48,9 +48,9 @@ others		= iconv_prog iconvconfig
 install-others-programs	= $(inst_bindir)/iconv
 install-sbin	= iconvconfig
 
-CFLAGS-gconv_cache.c += -DGCONV_DIR='"$(gconvdir)"'
-CFLAGS-gconv_conf.c = -DGCONV_PATH='"$(gconvdir)"'
-CFLAGS-iconvconfig.c = -DGCONV_PATH='"$(gconvdir)"' -DGCONV_DIR='"$(gconvdir)"'
+CFLAGS-gconv_cache.c += -DGCONV_DIR='"$(install_root)$(gconvdir)"'
+CFLAGS-gconv_conf.c = -DGCONV_PATH='"$(install_root)$(gconvdir)"'
+CFLAGS-iconvconfig.c = -DGCONV_PATH='"$(install_root)$(gconvdir)"' -DGCONV_DIR='"$(install_root)$(gconvdir)"'
 
 # Set libof-* for each routine.
 cpp-srcs-left := $(iconv_prog-modules) $(iconvconfig-modules)
